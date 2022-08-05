@@ -1,0 +1,59 @@
+.md-header {
+  background-color: black;
+}
+
+.md-content article {
+  margin-bottom: 3em;
+}
+
+.md-header .md-search__input {
+  background-color: #fff;
+}
+
+.md-search__input, .md-header .md-search__input::placeholder, .md-search__input + .md-search__icon {
+  color: #000 !important;
+}
+
+.p + .n, .o + .n, .highlight .kc, .highlight .n {
+  /* ex-deeppink */
+  color: rgb(43, 65, 129);
+}
+
+.md-header-nav__button.md-logo img, .md-header-nav__button.md-logo svg {
+  width: 1.8rem;
+  height: auto;
+}
+
+.img-full-width + p img {
+  width: 100%;
+}
+
+.img-auto-width + p img {
+  width: none;
+}
+
+.md-typeset blockquote {
+  border-left-color: #3F51B5;
+  color: #666;
+}
+
+blockquote strong {
+  color: #3F51B5;
+}
+
+.md-typeset h1 {
+  margin: 0 0 1em;
+}
+
+.small {
+  font-size: 14px;
+}
+
+
+.md-typeset [type="checkbox"]:checked + .task-list-indicator::before {
+    background-color: #e600c2;
+}
+
+span.task-list-indicator {
+    margin-right: 5px;
+}

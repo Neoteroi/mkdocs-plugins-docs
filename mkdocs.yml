@@ -1,0 +1,40 @@
+site_name: MkDocs Plugins
+site_author: Roberto Prevato
+site_description: The documentation of Neoteroi MkDocs Plugins.
+site_url: https://www.neoteroi.dev/mkdocs-plugins/
+repo_name: Neoteroi/mkdocs-plugins
+repo_url: https://github.com/Neoteroi/mkdocs-plugins
+edit_uri: ""
+
+nav:
+  - Overview: index.md
+  - Cards: cards.md
+  - Timeline: timeline.md
+  - Projects:
+      - Home: ./projects/index.md
+      - Gantt: ./projects/gantt.md
+  - About: about.md
+
+theme:
+  name: "material"
+  custom_dir: overrides/
+  highlightjs: true
+  favicon: img/favicon.ico
+  logo: img/logow.svg
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - css/extra.css
+
+markdown_extensions:
+  - admonition
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
