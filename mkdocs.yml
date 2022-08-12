@@ -8,33 +8,70 @@ edit_uri: ""
 
 nav:
   - Overview: index.md
-  - Cards: cards.md
-  - Timeline: timeline.md
-  - Projects:
-      - Home: ./projects/index.md
-      - Gantt: ./projects/gantt.md
-  - About: about.md
+  - Introduction: intro.md
+  - Plugins:
+      - Cards: cards.md
+      - Timeline: timeline.md
+      - Gantt: gantt.md
+      - OpenAPI Docs: ./web/oad.md
+      - Spantable: spantable.md
+  - Info:
+      - Credits: credits.md
+      - About: about.md
 
 theme:
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
   name: "material"
   custom_dir: overrides/
   highlightjs: true
-  favicon: img/favicon.ico
-  logo: img/logow.svg
+  favicon: img/neoteroi.ico
+  logo: img/neoteroi-w.svg
+  font:
+    text: Roboto
+    code: Roboto Mono
   icon:
     repo: fontawesome/brands/github
 
 extra_css:
   - css/extra.css
+  - css/neoteroi.css
 
 markdown_extensions:
   - admonition
+  - neoteroi.spantable
+  - neoteroi.timeline
+  - neoteroi.cards
+  - neoteroi.projects
   - markdown.extensions.codehilite:
       guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
   - pymdownx.superfences
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tabbed:
       alternate_style: true
-  - toc:
-      permalink: true
+  - footnotes
+  - plantuml_markdown:
+      server: http://www.plantuml.com/plantuml

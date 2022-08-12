@@ -1,0 +1,120 @@
+name: Main
+
+on:
+  workflow_dispatch:
+  release:
+    types: [published]
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+  pull_request:
+    branches:
+      - "*"
+    paths-ignore:
+      - README.md
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        python-version: [3.9]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+          submodules: false
+
+      - name: Use Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - uses: actions/cache@v1
+        id: depcache
+        with:
+          path: deps
+          key: requirements-pip-${{ matrix.python-version }}-${{ hashFiles('requirements.txt') }}
+
+      - name: Download dependencies
+        if: steps.depcache.outputs.cache-hit != 'true'
+        run: |
+          pip download --dest=deps -r requirements.txt
+
+      - name: Install dependencies
+        run: |
+          pip install -U --no-index --find-links=deps deps/*
+
+      - name: Build documentation
+        run: |
+          mkdocs build
+
+      - name: Fix links
+        run: |
+          chmod +x ./fixlinks.sh
+          ./fixlinks.sh
+
+      - name: Zip built files
+        run: |
+          mkdir -p .build/blacksheep
+          mv site/* .build/blacksheep
+          cd .build
+          7z a -r site.zip blacksheep
+
+      - name: Upload distribution package
+        uses: actions/upload-artifact@master
+        with:
+          name: dist
+          path: .build/site.zip
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: github.event_name == 'release' || github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Download a distribution artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist
+
+      - name: Unzip artifacts
+        run: |
+          7z x -o"site" dist/site.zip
+
+      - name: Use Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+
+      - name: Install tools
+        run: |
+          pip install pyazblob
+
+      - name: Publish distribution 📦 to DEV
+        run: |
+          pyazblob upload --path site/ --account-name "$ACCOUNT_NAME" -cn "\$web" -r -f
+        env:
+          ACCOUNT_NAME: ${{ secrets.DEV_EUW_ACCOUNT_NAME }}
+          PYAZ_ACCOUNT_KEY: ${{ secrets.DEV_EUW_ACCOUNT_KEY }}
+
+      - name: Publish distribution 📦 to PROD EUW
+        if: github.ref == 'refs/heads/main'
+        run: |
+          pyazblob upload --path site/ --account-name "$ACCOUNT_NAME" -cn "\$web" -r -f
+        env:
+          ACCOUNT_NAME: ${{ secrets.PROD_EUW_ACCOUNT_NAME }}
+          PYAZ_ACCOUNT_KEY: ${{ secrets.PROD_EUW_ACCOUNT_KEY }}
+
+      - name: Publish distribution 📦 to PROD USE
+        if: github.ref == 'refs/heads/main'
+        run: |
+          pyazblob upload --path site/ --account-name "$ACCOUNT_NAME" -cn "\$web" -r -f
+        env:
+          ACCOUNT_NAME: ${{ secrets.PROD_USE_ACCOUNT_NAME }}
+          PYAZ_ACCOUNT_KEY: ${{ secrets.PROD_USE_ACCOUNT_KEY }}
