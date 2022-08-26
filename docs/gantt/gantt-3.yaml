@@ -1,0 +1,56 @@
+- title: Developer
+  activities:
+    - title: Feature 1
+      events:
+        - title: Kick-off meeting
+          time: 2022-02-03
+          icon: ":octicons-rocket-16:"
+      activities:
+        - title: Project A
+          start: 2022-03-02
+          lasts: 2 weeks
+        - skip: 1 week
+        - title: B
+          lasts: 2 weeks
+
+- title: Tester
+  activities:
+    - title: Feature 1
+      start: 2022-03-02
+      activities:
+        - title: Project A
+          lasts: 2 weeks
+        - title: B
+          lasts: 2 weeks
+      events:
+        - title: Final delivery
+          time: 2022-06-05
+          icon: ":octicons-sun-16:"
+
+- title: Tester 1
+  activities:
+    - title: Feature 1
+      activities:
+        - title: Project A
+          start: 2022-03-02
+          lasts: 2 weeks
+        - title: B
+          lasts: 2 weeks
+      events:
+        - title: Final delivery
+          time: 2022-06-05
+          icon: ":octicons-sun-16:"
+
+- title: Tester 2
+  activities:
+    - title: Feature 1
+      activities:
+        - title: Project A
+          start: 2022-03-02
+          lasts: 2 weeks
+        - title: B
+          lasts: 2 weeks
+      events:
+        - title: Final delivery
+          time: 2022-06-05
+          icon: ":octicons-sun-16:"

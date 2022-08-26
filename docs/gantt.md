@@ -375,6 +375,16 @@ Examples:
     ::/gantt::
     ```
 
+### More items in the same row
+
+[gantt(./docs/gantt/gantt-3.yaml)]
+
+### Automatic dates
+
+[gantt(./docs/gantt/gantt-4.yaml)]
+
+
+
 ## Options
 
 | Name        | Description                                                                          | Default               |
