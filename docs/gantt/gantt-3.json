@@ -1,0 +1,68 @@
+{
+    "start": "2022-03-01",
+    "activities": [
+        {
+            "title": "Developer",
+            "activities": [
+                {
+                    "activities": [
+                        {
+                            "title": "Custom sign-up",
+                            "lasts": "2 weeks"
+                        },
+                        {
+                            "skip": "1 week"
+                        },
+                        {
+                            "title": "Custom password reset",
+                            "lasts": "2 weeks"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Tester",
+            "activities": [
+                {
+                    "activities": [
+                        {
+                            "skip": "5 days"
+                        },
+                        {
+                            "title": "Tests custom sign-up",
+                            "lasts": "2 weeks"
+                        },
+                        {
+                            "skip": "1 week"
+                        },
+                        {
+                            "title": "Tests custom password reset",
+                            "lasts": "2 weeks"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Technical writer",
+            "activities": [
+                {
+                    "activities": [
+                        {
+                            "skip": "4 weeks"
+                        },
+                        {
+                            "title": "Documents custom sign-up",
+                            "lasts": "2 weeks"
+                        },
+                        {
+                            "title": "Documents custom password reset",
+                            "lasts": "2 weeks"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

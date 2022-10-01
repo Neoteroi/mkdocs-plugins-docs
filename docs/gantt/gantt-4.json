@@ -1,0 +1,46 @@
+[
+    {
+        "title": "Example",
+        "start": "2022-01-01",
+        "activities": [
+            {
+                "title": "Feature 1",
+                "lasts": "10 day",
+                "activities": [
+                    {
+                        "skip": "10 days"
+                    },
+                    {
+                        "title": "Activity 1.1",
+                        "lasts": "30 days",
+                        "activities": [
+                            {
+                                "skip": "5 days"
+                            },
+                            {
+                                "title": "Activity 1.12",
+                                "lasts": "30 days"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Activity 2",
+                "lasts": "10 days"
+            },
+            {
+                "title": "Activity 3",
+                "lasts": "20 days"
+            },
+            {
+                "title": "Activity 2",
+                "lasts": "10 weeks"
+            },
+            {
+                "title": "Activity 2",
+                "lasts": "10 weeks"
+            }
+        ]
+    }
+]

@@ -1,56 +1,29 @@
-- title: Developer
-  activities:
-    - title: Feature 1
-      events:
-        - title: Kick-off meeting
-          time: 2022-02-03
-          icon: ":octicons-rocket-16:"
-      activities:
-        - title: Project A
-          start: 2022-03-02
-          lasts: 2 weeks
-        - skip: 1 week
-        - title: B
-          lasts: 2 weeks
+start: 2022-03-15
+activities:
+  - title: Developer
+    activities:
+      - activities:
+          - title: Custom sign-up
+            lasts: 2 weeks
+          - skip: 1 week
+          - title: Custom password reset
+            lasts: 2 weeks
 
-- title: Tester
-  activities:
-    - title: Feature 1
-      start: 2022-03-02
-      activities:
-        - title: Project A
-          lasts: 2 weeks
-        - title: B
-          lasts: 2 weeks
-      events:
-        - title: Final delivery
-          time: 2022-06-05
-          icon: ":octicons-sun-16:"
+  - title: Tester
+    activities:
+      - activities:
+          - skip: 5 days
+          - title: Tests custom sign-up
+            lasts: 2 weeks
+          - skip: 1 week
+          - title: Tests custom password reset
+            lasts: 2 weeks
 
-- title: Tester 1
-  activities:
-    - title: Feature 1
-      activities:
-        - title: Project A
-          start: 2022-03-02
-          lasts: 2 weeks
-        - title: B
-          lasts: 2 weeks
-      events:
-        - title: Final delivery
-          time: 2022-06-05
-          icon: ":octicons-sun-16:"
-
-- title: Tester 2
-  activities:
-    - title: Feature 1
-      activities:
-        - title: Project A
-          start: 2022-03-02
-          lasts: 2 weeks
-        - title: B
-          lasts: 2 weeks
-      events:
-        - title: Final delivery
-          time: 2022-06-05
-          icon: ":octicons-sun-16:"
+  - title: Technical writer
+    activities:
+      - activities:
+          - skip: 4 weeks
+          - title: Documents custom sign-up
+            lasts: 2 weeks
+          - title: Documents custom password reset
+            lasts: 2 weeks

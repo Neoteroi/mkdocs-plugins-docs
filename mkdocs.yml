@@ -15,6 +15,7 @@ nav:
       - Gantt: gantt.md
       - OpenAPI Docs: ./web/oad.md
       - Spantable: spantable.md
+      - Contribs: contribs.md
   - Info:
       - Credits: credits.md
       - About: about.md
@@ -43,6 +44,13 @@ theme:
 extra_css:
   - css/extra.css
   - css/neoteroi.css
+
+plugins:
+  - search
+  - neoteroi.contribs:
+      contributors:
+        - email: roberto.prevato@gmail.com
+          image: https://avatars.githubusercontent.com/u/2576032?s=400&u=d8d880e8ed05bb170877dd3d561d8301c4beeeed&v=4
 
 markdown_extensions:
   - admonition

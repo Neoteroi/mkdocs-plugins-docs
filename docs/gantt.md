@@ -248,7 +248,7 @@ This feature is inspired by gantt diagrams in [PlantUML](https://plantuml.com/ga
 
 ### Using events
 It is possible to define events for each activity in the plan. Events require a single
-date and are represented with dots.
+date and are represented with circles.
 
 [gantt(./docs/gantt/gantt-2.yaml)]
 
@@ -375,15 +375,231 @@ Examples:
     ::/gantt::
     ```
 
-### More items in the same row
+!!! tip "Any activity can have events"
+    The examples here show events in a single activity, but they can be added
+    to any activity of a plan.
+
+### Subactivities
+
+It is possible to define more than one item per row, using subactivities. Subactivities
+are always displayed inside the row of their root activity.
+
+When defining activities, it is also possible to define the start date for the first item
+in a tree of activities, and only specify how long following activities last. To add
+breaks, add items having a `skip` property with a value describing a duration.
+
+The following examples illustrate both features:
 
 [gantt(./docs/gantt/gantt-3.yaml)]
 
-### Automatic dates
+=== "JSON"
+
+    ```json
+    ::gantt::
+    {
+        "start": "2022-03-01",
+        "activities": [
+            {
+                "title": "Developer",
+                "activities": [
+                    {
+                        "activities": [
+                            {
+                                "title": "Custom sign-up",
+                                "lasts": "2 weeks"
+                            },
+                            {
+                                "skip": "1 week"
+                            },
+                            {
+                                "title": "Custom password reset",
+                                "lasts": "2 weeks"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Tester",
+                "activities": [
+                    {
+                        "activities": [
+                            {
+                                "skip": "5 days"
+                            },
+                            {
+                                "title": "Tests custom sign-up",
+                                "lasts": "2 weeks"
+                            },
+                            {
+                                "skip": "1 week"
+                            },
+                            {
+                                "title": "Tests custom password reset",
+                                "lasts": "2 weeks"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "Technical writer",
+                "activities": [
+                    {
+                        "activities": [
+                            {
+                                "skip": "4 weeks"
+                            },
+                            {
+                                "title": "Documents custom sign-up",
+                                "lasts": "2 weeks"
+                            },
+                            {
+                                "title": "Documents custom password reset",
+                                "lasts": "2 weeks"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+    ::/gantt::
+    ```
+
+=== "YAML"
+
+    ```yaml
+    ::gantt::
+    start: 2022-03-01
+    activities:
+      - title: Developer
+        activities:
+          - activities:
+              - title: Custom sign-up
+                lasts: 2 weeks
+              - skip: 1 week
+              - title: Custom password reset
+                lasts: 2 weeks
+
+      - title: Tester
+        activities:
+          - activities:
+              - skip: 5 days
+              - title: Tests custom sign-up
+                lasts: 2 weeks
+              - skip: 1 week
+              - title: Tests custom password reset
+                lasts: 2 weeks
+
+      - title: Technical writer
+        activities:
+          - activities:
+              - skip: 4 weeks
+              - title: Documents custom sign-up
+                lasts: 2 weeks
+              - title: Documents custom password reset
+                lasts: 2 weeks
+    ::/gantt::
+    ```
 
 [gantt(./docs/gantt/gantt-4.yaml)]
 
+=== "JSON"
 
+    ```json
+    ::gantt::
+    [
+        {
+            "title": "Example",
+            "start": "2022-01-01",
+            "activities": [
+                {
+                    "title": "Feature 1",
+                    "lasts": "10 day",
+                    "activities": [
+                        {
+                            "skip": "10 days"
+                        },
+                        {
+                            "title": "Activity 1.1",
+                            "lasts": "30 days",
+                            "activities": [
+                                {
+                                    "skip": "5 days"
+                                },
+                                {
+                                    "title": "Activity 1.12",
+                                    "lasts": "30 days"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title": "Activity 2",
+                    "lasts": "10 days"
+                },
+                {
+                    "title": "Activity 3",
+                    "lasts": "20 days"
+                },
+                {
+                    "title": "Activity 2",
+                    "lasts": "10 weeks"
+                },
+                {
+                    "title": "Activity 2",
+                    "lasts": "10 weeks"
+                }
+            ]
+        }
+    ]
+    ::/gantt::
+    ```
+
+=== "YAML"
+
+    ```yaml
+    ::gantt::
+
+    - title: Beginning
+      start: 2022-01-01
+      activities:
+        - title: Feature 1
+          lasts: 10 day
+          activities:
+            - skip: 10 days
+            - title: Activity 1.1
+              lasts: 30 days
+              activities:
+                - skip: 5 days
+                - title: Activity 1.12
+                  lasts: 30 days
+        - title: Activity 2
+          lasts: 10 week
+        - title: Activity 3
+          lasts: 20 days
+        - title: Activity 2
+          lasts: 10 week
+        - title: Activity 2
+          lasts: 10 week
+
+    - title: Beginning
+      start: 2022-01-01
+      activities:
+        - title: Activity 1
+          lasts: 10 day
+          activities:
+            - title: Activity 1.1
+              lasts: 30 days
+        - title: Activity 2
+          lasts: 40 week
+        - title: Activity 3
+          lasts: 20 days
+
+    ::/gantt::
+    ```
 
 ## Options
 
@@ -403,9 +619,8 @@ Examples:
 ### Controlling the scale size
 
 This extension produces diagrams displaying years, quarters, months, weeks, and days in
-scale. To control the size of the scale, use the `month_width` option, which affects the
+scale. To control the size of the scale, use the `month-width` option, which affects the
 size of months having 30 days.
-
 
 ```
 [gantt month-width=800(./docs/gantt/gantt-1.yaml)]

@@ -43,4 +43,11 @@ pip install neoteroi-mkdocs
   image: ./img/spantable.png
   url: ./spantable/
 
+- title: Contribs
+  content: |
+    MkDocs plugin to generate contributions information for each page, obtained
+    automatically from the project's `git` repository.
+  image: ./img/contribs-02.png
+  url: ./contribs/
+
 ::/cards::
