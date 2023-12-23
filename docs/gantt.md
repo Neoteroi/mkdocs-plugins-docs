@@ -25,7 +25,6 @@ markdown_extensions:
 
 ### Examples
 
-
 === "JSON"
 
     ```json
@@ -169,13 +168,9 @@ markdown_extensions:
 The input for a Gantt diagram is a list of activities having a shape described
 by the following scheme:
 
-```plantuml
-@startuml "Timeline"
-
-!theme plain
-
-left to right direction
-hide empty members
+```mermaid
+classDiagram
+direction LR
 
 class Event {
     title: str
@@ -197,7 +192,6 @@ class Activity {
 Activity --> Event
 Activity --> Activity
 
-@enduml
 ```
 
 ```python

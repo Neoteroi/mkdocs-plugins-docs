@@ -104,13 +104,9 @@ markdown_extensions:
 
 ### Schema
 
-```plantuml
-@startuml "Timeline"
-
-!theme plain
-
-left to right direction
-hide empty members
+```mermaid
+classDiagram
+direction LR
 
 class TimelineItem {
     title: str
@@ -124,10 +120,8 @@ class Timeline {
     items: Array of TimelineItem
 }
 
-
 Timeline --> TimelineItem
 
-@enduml
 ```
 
 ```python

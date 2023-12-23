@@ -151,13 +151,9 @@ markdown_extensions:
 
 ### Schema
 
-```plantuml
-@startuml "Cards"
-
-!theme plain
-
-left to right direction
-hide empty members
+```mermaid
+classDiagram
+direction LR
 
 class CardItem {
     title: str
@@ -174,7 +170,6 @@ class Cards {
 
 Cards --> CardItem
 
-@enduml
 ```
 
 ```python
