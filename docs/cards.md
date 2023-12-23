@@ -306,3 +306,73 @@ To display images using background images instead of image elements, use the
   image: ../img/icons/007-poseidon.png
 
 ::/cards::
+
+## Bigger
+
+::cards:: cols=3 class_name="bigger"
+
+- title: Zeus
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/001-zeus.png
+
+- title: Athena
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/003-athena.png
+
+- title: Poseidon
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/007-poseidon.png
+
+- title: Artemis
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/021-artemis.png
+
+- title: Ares
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/006-ares.png
+
+- title: Nike
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/027-nike.png
+
+::/cards::
+
+## Smaller
+
+<style>
+    .smaller .nt-card .nt-card-image img {
+        height: 60px;
+    }
+
+    .smaller .nt-card .nt-card-image {
+        min-height: 60px;
+    }
+</style>
+
+::cards:: cols=6 class_name="smaller"
+
+- title: Zeus
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/001-zeus.png
+
+- title: Athena
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/003-athena.png
+
+- title: Poseidon
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/007-poseidon.png
+
+- title: Artemis
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/021-artemis.png
+
+- title: Ares
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/006-ares.png
+
+- title: Nike
+  content: Lorem ipsum dolor sit amet.
+  image: ./img/icons/027-nike.png
+
+::/cards::

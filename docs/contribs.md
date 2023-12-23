@@ -75,6 +75,26 @@ following example:
 
 Contributors are matched by email address, and the image is used if configured.
 
+## Adding information with txt files
+
+In some cases contributors information cannot be obtained from Git history:
+for example following a history rewrite, or because contributors for a page
+are not competent in Git, and contributed in ways that are not visible in the
+commit history. For these situations, the contribs plugin supports adding more
+information using `*.contribs.txt` files, with a structure like the following:
+
+```
+# Comment
+Charlie Brown <charlie.brown@peanuts.com> (3)
+Sally Brown <sally.brown@peanuts.com> (1)
+Roberto Prevato <roberto.prevato@gmail.com> (10)
+```
+
+The name of the .txt files must match the name of the page:
+
+- `example.md`
+- `example.contribs.txt`
+
 ## Under the hood
 
 This plugin works by using the following `git` commands, to obtain contributors
