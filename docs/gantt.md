@@ -597,18 +597,19 @@ The following examples illustrate both features:
 
 ## Options
 
-| Name        | Description                                                                          | Default               |
-| ----------- | ------------------------------------------------------------------------------------ | --------------------- |
-| id          | Configures an `id` property on the root HTML element                                 | ""                    |
-| month-width | Controls the size of the scale - represents the pixels width of a month with 30 days | 150                   |
-| no-groups   | Disables groups (flag)                                                               | False                 |
-| no-years    | Disables years (flag)                                                                | False                 |
-| no-weeks    | Disables weeks (flag)                                                                | False                 |
-| no-quarters | Disables quarters (flag)                                                             | False                 |
-| no-days     | Disables days (flag)                                                                 | False                 |
-| whole-years | Displays whole years from January to December (flag)                                 | False                 |
-| pastello    | Applies a CSS class to use a color palette with milder saturation                    | False                 |
-| vlines-pace | Controls how separator vertical lines are generated (each week or each month)        | "monthly" or "weekly" |
+| Name         | Description                                                                          | Default               |
+| ------------ | ------------------------------------------------------------------------------------ | --------------------- |
+| id           | Configures an `id` property on the root HTML element                                 | ""                    |
+| month-width  | Controls the size of the scale - represents the pixels width of a month with 30 days | 150                   |
+| month-format | Controls date formatting for months                                                  | "%B %Y"               |
+| no-groups    | Disables groups (flag)                                                               | False                 |
+| no-years     | Disables years (flag)                                                                | False                 |
+| no-weeks     | Disables weeks (flag)                                                                | False                 |
+| no-quarters  | Disables quarters (flag)                                                             | False                 |
+| no-days      | Disables days (flag)                                                                 | False                 |
+| whole-years  | Displays whole years from January to December (flag)                                 | False                 |
+| pastello     | Applies a CSS class to use a color palette with milder saturation                    | False                 |
+| vlines-pace  | Controls how separator vertical lines are generated (each week or each month)        | "monthly" or "weekly" |
 
 ### Controlling the scale size
 
