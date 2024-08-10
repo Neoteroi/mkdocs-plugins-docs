@@ -200,6 +200,32 @@ class Cards:
 
 ## Options
 
+### Image properties
+
+To control some image properties, specify images as objects:
+
+```
+::cards::
+
+- title: Zeus
+  content: Lorem ipsum dolor sit amet.
+  image:
+    url: ./img/icons/001-zeus.png
+    alt: Some alt text
+
+- title: Athena
+  content: Lorem ipsum dolor sit amet.
+  image:
+    url: ./img/icons/003-athena.png
+    alt: Some other alt text
+
+::/cards::
+```
+
+It is possible to define `alt`, `height`, and `width` properties for the image.
+
+If not specified, `alt` is set using the card's title.
+
 ### Cards with links
 
 Specify a `url` property in the items to have links in cards.
